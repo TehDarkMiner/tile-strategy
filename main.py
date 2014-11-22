@@ -11,17 +11,6 @@ turn = 0
 #Idea: Have a main.py in game engine (like physics engine). make a dictionary in that. for all future games, import that as object (main()) 
 #then, those future games can simply main.whiletrue.add(NAME OF FUNCTION, LAMBDA FUNCTION HERE). In main.py, this gets called while 1.
 #so it's an engine for event handling and looping
-
-def printLine(text):
-    print text
-    
-class classErrorHandling:
-    def errorImageCompatability(self):
-        if(pygame.image.get_extended() == False):
-            printLine("Cannot load non-BMP images")
-            pygame.quit()         
-        
-errorHandling = classErrorHandling()          
    
     
 def loadImage(filename):
@@ -144,7 +133,6 @@ while 1:
                                         if battles[inputcontrol.getMouseOverSquare(width, height, objectsPerWidth)].active == False:
                                             battles[inputcontrol.getMouseOverSquare(width, height, objectsPerWidth)].active = True
                                             battles[inputcontrol.getMouseOverSquare(width, height, objectsPerWidth)].battleUnitPlayer.append(unit[ii])
-                                            print battles[inputcontrol.getMouseOverSquare(width, height, objectsPerWidth)].battleUnitPlayer
                                         else:
                                             a = 0
                                             for o in battles[inputcontrol.getMouseOverSquare(width, height, objectsPerWidth)].battleUnitPlayer:
@@ -152,7 +140,6 @@ while 1:
                                                     a = 1
                                             if a == 0:
                                                 battles[inputcontrol.getMouseOverSquare(width, height, objectsPerWidth)].battleUnitPlayer.append(unit[ii])
-                                                print "k"
                                                 
                                         
     
@@ -160,7 +147,6 @@ while 1:
         elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             #Place new units/other objects if needed
             if globalvars.placenewunit == True:
-                print "gv"
                 if inputcontrol.getMouseOverObject(0, 0, width, height):
                     unit.append(assets.classTypeUnit(inputcontrol.getMouseOverSquare(width, height, objectsPerWidth),squareSprites.unit,squareSprites.unitSelected,True))
                     globalvars.placenewunit = False
@@ -182,7 +168,6 @@ while 1:
             for ii, iii in enumerate(enemyUnit):
                 if enemyUnit[ii].idx == inputcontrol.getMouseOverSquare(width, height, objectsPerWidth):
                     battles[inputcontrol.getMouseOverSquare(width, height, objectsPerWidth)].selected = True
-                    print 'kv'
                     
             #Button actions
             for idx,i in enumerate(button):
